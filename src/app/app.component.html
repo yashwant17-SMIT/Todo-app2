@@ -1,0 +1,56 @@
+<div class="container">
+  <h1>To-do Application</h1>
+<h2>Todo List:</h2>
+<app-todo-list></app-todo-list>
+  <form class="todo-form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div>
+      <input type="text" id="title" name="title" ngModel>
+    </div>
+    <div>
+      <button type="submit"><i class="btn-floating btn-large waves-effect waves-light green">Add</i></button>
+    </div>
+  </form>
+  <ul class=todo-list>
+    <li *ngFor="let todo of todos">
+      <div *ngIf="!this.todo.isComplete">
+        <div>{{this.todo.title}}</div>
+        <div>
+          <button (click)="onComplete(this.todo.id)"><i
+              class="btn-floating btn-large waves-effect waves-light blue">check</i></button>
+          <button (click)="onDelete(this.todo.id)"><i
+              class="btn-floating btn-large waves-effect waves-light red">delete</i></button>
+        </div>
+      </div>
+    </li>
+    <br>
+    <br>
+    <br>
+  </ul>
+  <h5>Completed Table
+    <br>
+    <br>
+    <br>
+    Tasks
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Status
+  </h5>
+    <app-todo-details></app-todo-details>
+  <br>
+  <br>
+  
+  <table border="5">
+    <tr>
+    </tr>
+    <tr >
+      <td>Homework</td>
+      <td>Done</td>
+    </tr>
+        <tr>
+        </tr>
+  </table>
+  <br>
+  <br>
+  <br>
+  <app-space-x></app-space-x>
+  <router-outlet></router-outlet>
+</div>
